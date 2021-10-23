@@ -12,7 +12,7 @@ const isDevelopment = process.env.NODE_ENV === 'development'
 
 export default function App({ Component, pageProps }) {
   return (
-    <ThemeProvider attribute="class">
+    <ThemeProvider defaultTheme="dark" attribute="class">
       <Head>
         <meta content="width=device-width, initial-scale=1" name="viewport" />
       </Head>
