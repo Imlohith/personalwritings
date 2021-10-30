@@ -15,6 +15,10 @@ export default function App({ Component, pageProps }) {
     <ThemeProvider defaultTheme="dark" attribute="class">
       <Head>
         <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <meta
+          name="google-site-verification"
+          content="pxHBGwnp3PwKcomAgdOWIJ6EU-jQd6y8Mvd1NznrpHg"
+        />
       </Head>
       {isDevelopment && <ClientReload />}
       <Analytics />
