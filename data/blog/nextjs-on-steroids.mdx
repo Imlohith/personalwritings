@@ -1,0 +1,44 @@
+---
+title: 'Next.js on steroids'
+date: 2021-11-23T15:32:14Z
+lastmod: '2021-11-23'
+tags: ['Next.js', 'React', 'JavaScript']
+draft: false
+---
+
+## Overview
+
+Next.js is a JavaScript framework for building SSR (Server Side Rendering) appications. It is build on top of React library but comes with its own tooling.
+
+### What is SSR?
+
+When working with plain `React App`, The rendering happens at client side (Browser), and when using `Next.js`, it is rendered in the server side.
+
+With client-side rendering, content is rendered in the browser instead of the website's server. If you use a javascript framework which is plain react app, this is the default form of rendering.
+
+![image info](/static/images/canada/CSR.png)
+
+With server side rendering, content is rendered on the website's server to avoid additional server requests and round trips for data fetching and templating on the client side.
+
+![image info](/static/images/canada/SSR.png)
+
+### Let's dive deep into CSR VS SSR
+
+When you working on any plain react app, you probably endup deploying it on any web server. It's not manditory to deploy it on web server, you can free to deploy it on any CDN network.
+
+`Webpack` bundles the project when you run `npm build` or `yarn build`. It will generate a `bundle.js` file including `index.html` and some assets.
+
+These files will server from any CDN network or web server. When ever user request our app from browser the entire app downloaded to browser.
+`bundle.js` file consists of all components which needs to rendered in the browser. That is the reason when you open any heavy react app you will encounter a black page at start.
+
+In this case, All the app HTML content is rendered in the client side.
+
+When working with Next.js, It is quite intresting. When ever user requests a page from browser, It won't download all the app code to browser, instead it will pre-render the HTML on server and sent the content to browser.
+We will see lot of performance gain here.
+
+> #### There are other benifits when using Next.js over plain React
+>
+> - File based routing.
+> - SEO support.
+> - Out of the box Typescript support
+> - Built-in CSS support
