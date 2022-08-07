@@ -1,0 +1,119 @@
+---
+title: 'Javascript Concurrency and Event-Loop Explained'
+date: 2022-08-07T15:32:14Z
+lastmod: '2022-08-07'
+tags: ['Javascript', 'Event-Loop']
+draft: false
+---
+
+## Overview
+
+A good understanding of javascript execution flow helps developers to write better code.
+
+Ok, let's talk about how the event loop works in javascript.
+
+Javascript runs on a browser with the help of google's V8 engine to manipulate DOM inside webpages.
+The webpage consists of different types of elements like buttons, text, images, etc..
+
+Think from a user/client perspective. When a user opens a webpage that consists of buttons, text and images, and so on.
+All the elements are loaded parallelly without waiting for other elements to load.
+
+Did you ever wonder how this is happening?
+
+## visual represntaion
+
+![image info](/static/images/the_javascript_runtime_environment_example.svg)
+
+Let's write some code to understand it better.
+
+```js
+// FUNCTION name called one
+function one() {
+  //log
+  console.log('One')
+}
+
+// FUNCTION name called two
+function Two() {
+  //log
+  console.log('Two')
+}
+
+// FUNCTION name called three
+function Three() {
+  //log
+  console.log('Three')
+}
+
+one()
+two()
+three()
+```
+
+The above code is very simple and can easily predict the output.
+
+Let's understand the exec flow when the above code runs. There are 3 function definitions and 3 function calls happening.
+
+Every function is javascript executes inside call stack created by javascript engine. Whenever a function gets called it will be directly pushed into the call stack and executes the code line by line.
+
+![image info](/static/images/callstack.png)
+
+Once execution completes, the function gets popped out of the stack.
+
+### Now the most interesting part of our overall discussion. How do things get executed in parallel when the call stack executes functions one by one.
+
+Event-Loop and message queue into rescue. Event-Loop is responsible for executing the code, collecting and processing events and the Message queue is responsible for storing events that are running asynchronously.
+
+Let's understand this with some code.
+
+```js
+// FUNCTION name called one
+function one() {
+  //log
+  console.log('One')
+}
+
+// FUNCTION name called two
+function Two() {
+  //log
+  console.log('Two')
+  setTimeout(() => {
+    console.log('Hi, Iam web api')
+  }, 3000)
+}
+
+// FUNCTION name called three
+function Three() {
+  //log
+  console.log('Three')
+}
+
+one()
+two()
+three()
+```
+
+This time can you guess the output? If yes. Congratulations.
+
+The Expeted Output is
+
+```js
+  one
+  two
+  three
+  hi, iam webapi
+```
+
+This happens because the Web API (setTimeout()) function executes later point of out in the future.
+But, Call Stack won't wait for setTimeout() execution and continue to its next line.
+
+Once setTimeout() execution completes, Special Event will be stored inside the message queue with reference.
+Event-Loop keeps checking for the events that are stored inside the message queue and send those events to the call stack for its execution.
+
+That's how things are loading parallelly without waiting for other elements.
+
+Hope it helps..
+
+Happy coding.
+
+[edit this page](https://github.com/Imlohith/personalwritings/edit/master/data/blog/js-event-loop-explained.mdx)
