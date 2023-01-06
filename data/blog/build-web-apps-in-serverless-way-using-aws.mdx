@@ -15,16 +15,16 @@ In this tutorial, I'll show you how to build a serverless architecture for a web
 ## Here are the steps to follow:
 
 - Create a REST API using Amazon API Gateway. This will be the entry point for your web application, and will expose the backend functionality of your application through a set of RESTful APIs.
-  ![Alt text](/static/images/serverless-app-aws/api-gateway.png?raw=true 'output')
+  ![Alt text](/static/images/serverless-app-aws/api-gateway.png)
 
 - Write the code for your application using AWS Lambda. AWS Lambda is a serverless compute service that lets you run your code in response to events and automatically manages the underlying compute resources for you. You can use any programming language that is supported by AWS Lambda to write your code.
-  ![Alt text](/static/images/serverless-app-aws/aws-lambda.png?raw=true 'output')
+  ![Alt text](/static/images/serverless-app-aws/aws-lambda.png)
 
 - Store the static assets (HTML, CSS, JavaScript, etc.) for your web application in an Amazon S3 bucket. Amazon S3 is an object storage service that offers industry-leading scalability, data availability, security, and performance.
-  ![Alt text](/static/images/serverless-app-aws/aws-s3.png?raw=true 'output')
+  ![Alt text](/static/images/serverless-app-aws/aws-s3.png)
 
 - Configure Amazon API Gateway to proxy requests to your AWS Lambda function or Amazon S3 bucket. This will allow you to use your REST APIs to access the functionality implemented by your Lambda functions, or serve the static assets of your web application directly from your S3 bucket.
-  ![Alt text](/static/images/serverless-app-aws/aws-lambda-proxy-api.png?raw=true 'output')
+  ![Alt text](/static/images/serverless-app-aws/aws-lambda-proxy-api.png)
 
 With this architecture, you can build a fully-functional web application that scales automatically to meet demand, without the need to provision, scale, or maintain any servers. You can simply write your code, upload it to AWS Lambda, and let the service take care of the rest.
 
