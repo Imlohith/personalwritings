@@ -13,7 +13,7 @@ const siteMetadata = {
   email: 'lohithkumar.gangadevi@gmail.com',
   github: 'https://github.com/Imlohith',
   twitter: 'https://twitter.com/lohith_kumar121',
-  linkedin: 'https://www.linkedin.com/in/lohithkumare3iq/',
+  linkedin: 'https://www.linkedin.com/in/lohithkumargangadevi/',
   locale: 'en-US',
   analytics: {
     // supports plausible, simpleAnalytics or googleAnalytics
