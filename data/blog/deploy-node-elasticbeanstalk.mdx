@@ -1,0 +1,69 @@
+---
+title: 'Deploying a Node.js Application in Elastic Beanstalk'
+date: 2023-02-18T15:32:14Z
+lastmod: '2023-02-18'
+tags: ['AWS', 'Node', 'Elastic Beanstalk']
+draft: false
+---
+
+# Deploying a Node.js Application in Elastic Beanstalk
+
+Elastic Beanstalk is a fully managed service by Amazon Web Services (AWS) that makes it easy to deploy and scale applications in the cloud. In this tutorial, I'll walk through the process of deploying a Node.js application to Elastic Beanstalk.
+
+## Prerequisites
+
+Before we get started, make sure you have the following:
+
+- AWS account
+- The EB CLI installed
+- Node.js application
+
+## Step 1: Initialize your project
+
+1. Open your terminal and navigate to your Node.js application directory.
+2. Run the following command to initialize the project:
+
+```
+eb init --profile [aws-sdk named profile]
+```
+
+3. Follow the steps to select your region, application name, and environment name.
+
+## Step 2: Create an environment
+
+1. Run the following command to create an environment:
+
+```
+eb create --profile [aws-sdk named profile]
+```
+
+2. Follow the prompts to select your environment type, platform, and instance type.
+
+## Step 3: Deploy your application
+
+1. Run the following command to deploy your application to Elastic Beanstalk:
+
+```
+eb deploy --profile [aws-sdk named profile]
+```
+
+2. Wait for the deployment to complete.
+
+## Step 4: View your application
+
+1. Once the deployment is complete, run the following command to open your application in a browser:
+
+```
+eb open
+```
+
+### Behind the Scenes
+
+1. The EB CLI uses Git to create a source bundle of your application code.
+2. The source bundle is uploaded to an S3 bucket specified in your Elastic Beanstalk configuration.
+3. Elastic Beanstalk retrieves the source bundle from the S3 bucket.
+4. Elastic Beanstalk launches a new instances to handle the deployment.
+5. Elastic Beanstalk deploys the source bundle to the new instances.
+6. The old instances are terminated and the deployment is complete.
+
+Congratulations! You successfully deployed your Node.js application to Elastic Beanstalk using the EB CLI.
