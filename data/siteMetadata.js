@@ -5,7 +5,7 @@ const siteMetadata = {
   description:
     'This is my personal blog where i love to share the programming topics and technology related stuff.',
   language: 'en-us',
-  siteUrl: 'https://cjlohith.tech',
+  siteUrl: 'https://lohithgangadevi.tech',
   siteRepo: '',
   siteLogo: '/static/images/cj.png',
   image: '/static/images/avatar.png',
