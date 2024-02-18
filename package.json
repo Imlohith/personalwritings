@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./scripts/next-remote-watch.js ./data",
-    "dev": "cross-env NODE_OPTIONS='--openssl-legacy-provider' next dev",
+    "dev": "next dev",
     "build": "next build && node ./scripts/generate-sitemap",
     "serve": "next start",
     "analyze": "cross-env ANALYZE=true next build",
